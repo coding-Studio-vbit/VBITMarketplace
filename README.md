@@ -1,0 +1,2 @@
+# vbit_marketplace
+A marketplace to reuse the goods that is no longer functionally needed for a group of students. We could have a marketplace where people can buy, sell, and borrow goods of common use like Text Books, Calculators and Drafters. This has a huge potential market for usage as first years all buy Drafters and Lab dress which is generally not needed once they enter their second year, instead of wasting this resource we can create a subsidised marketplace to put these goods too better use. 

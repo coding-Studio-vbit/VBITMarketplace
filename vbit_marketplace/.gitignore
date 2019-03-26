@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 #actual file with api
-.actual-server.js
+actual-server.js*

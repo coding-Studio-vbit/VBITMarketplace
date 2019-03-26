@@ -1,5 +1,5 @@
-const accountSid = 'ACe7faaeafde1aafc4c694f3b68c1035bc';
-const authToken = 'fc81ae82e6c7469051947bc5c72a6225';
+const accountSid = 'good luck';
+const authToken = 'i will not tell';
 const client = require('twilio')(accountSid, authToken);
 var request = require('request');
 var bodyParser = require('body-parser');
@@ -11,10 +11,10 @@ var knex = require('knex')({
   client: 'pg',
   version: '7.2',
   connection: {
-    host : 'ec2-184-73-216-48.compute-1.amazonaws.com',
+    host : 'ec2-damaged.compute-1.amazonaws.com',
     user : 'wgplntgwvybicj',
-    password : '1c93f9fc50d8226d44070305ab2a4d83a2474470d1a66f1c184cad2f43a6d285',
-    database : 'd84jgl5h94pqst'
+    password : 'place password here',
+    database : 'hola'
   }
 });
 

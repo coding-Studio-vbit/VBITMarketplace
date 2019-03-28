@@ -55,7 +55,7 @@ app.get('verifyOTP',function(req,res){
     })
 });
 
-
+//send Email
 app.get('/email', (req,res) => {
     var uid = req.body.uid;
     sendEmail(uid);
@@ -90,10 +90,22 @@ transporter.sendMail(mailOptions, function(error, info){
   }
 });
 
-app.get('/verify', function(req,res){
-    
+//listener to verify email 
+app.get('/verifyemail', function(req,res){
+          
+     let receivedhash = req.body.hash;
+     let uid = req.body.uid;
+     var checkhash;
+     knex('users').where({
+     userid: uid
+    }).select('userverificationcode').returning().then(function(code){
+    checkhash = code[0];
+    if(receivedhash = checkhash){
+     knex('users').update('userpassword', 'TRUE')
+    }
+})
 
-})    
+})      
 // listen for all incoming requests
 app.listen(3000, function(){
   console.log("Server is listening on port 3000");

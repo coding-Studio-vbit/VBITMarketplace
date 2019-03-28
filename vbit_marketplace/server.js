@@ -1,6 +1,7 @@
 const accountSid = 'ACe7faaeafde1aafc4c694f3b68c1035bc';
 const authToken = 'fc81ae82e6c7469051947bc5c72a6225';
 const client = require('twilio')(accountSid, authToken);
+const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 var request = require('request');
 var bodyParser = require('body-parser');
@@ -106,6 +107,23 @@ app.get('/verifyemail', function(req,res){
 })
 
 })      
+
+// Sign up 
+app.post('/signup', (req, res) => {
+  const { useremail, userfirstname, userpassword} = req.body;
+  let hash = bcrypt.hashSync(userpassword,10);
+  knex('users')
+    .insert({
+      useremail: useremail,
+      userpassword: hash,
+      userfirstname: userfirstname,
+      userregistrationdate: new Date()
+    })
+    .then(user => {
+      res.json("User Registered Successfully")
+    })
+    .catch(err => res.status(400).json('Error Registering'))
+})
 // listen for all incoming requests
 app.listen(3000, function(){
   console.log("Server is listening on port 3000");

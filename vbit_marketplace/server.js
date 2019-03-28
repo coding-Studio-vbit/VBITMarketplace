@@ -44,7 +44,7 @@ app.get('verifyOTP',function(req,res){
   knex.select('verificationcode').where({uid: uid }).from('users').then((rows) => {
         for (row of rows) {
             console.log(`${row['uid']} ${row['otp']}`);
-            if (otp=receivedOTP) {
+            if (`${row['otp']}`=receivedOTP) {
               console.log("Verified");
             }
         }

@@ -124,6 +124,27 @@ app.post('/signup', (req, res) => {
     })
     .catch(err => res.status(400).json('Error Registering'))
 })
+
+//Signin
+app.post('/signin', (req, res) => {
+  knex.select('useremail', 'userpassword').from('users')
+    .where('useremail', '=', req.body.email)
+    .then(data => {
+      const isValid = bcrypt.compareSync(req.body.password, data[0].userpassword);
+      if (isValid) {
+        return knex.select('*').from('users')
+          .where('useremail', '=', req.body.email)
+          .then(user => {
+            res.json(user[0])
+          })
+          .catch(err => res.status(400).json('unable to get user'))
+      } else {
+        res.status(400).json('wrong credentials')
+      }
+    })
+    .catch(err => res.status(400).json('wrong credentials'))
+})
+
 // listen for all incoming requests
 app.listen(3000, function(){
   console.log("Server is listening on port 3000");

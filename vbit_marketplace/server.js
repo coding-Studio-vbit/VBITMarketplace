@@ -7,7 +7,10 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 var randomInt = require('random-int');
-
+var payumoney = require('payumoney-node');
+let MERCHANT_KEY="";
+let MERCHANT_SALT ="";
+let AUTHORIZATION_HEADER = ""
 app.use(bodyParser.json());
 
 //initializing knex
@@ -21,6 +24,47 @@ var knex = require('knex')({
     database : 'hola'
   }
 });
+
+//Payment initializing
+app.get('/payment', function(req, res) {
+  let fname = req.param('fname');
+  let lname = req.param('lname');
+  let amount = req.param('amount');
+  let email = req.param('email');
+  let pno = req.param('pno');
+  let info = req.param('linfo');
+  let tid = req.param('tid');
+  payumoney.isProdMode(true); // production = true, test = false
+  var paymentData = {
+      productinfo: info,
+      txnid: tid,
+      amount: amount,
+      email: email,
+      phone: pno,
+      lastname: lname,
+      firstname: fname,
+      surl: "http://localhost:3000/payu/success", //"http://localhost:3000/payu/success"
+      furl: "http://localhost:3000/payu/failure", //"http://localhost:3000/payu/fail"
+  };
+  console.log(paymentData)
+
+  payumoney.makePayment(paymentData, function(error, response) {
+    if (error) {
+      // Some error
+    } else {
+      // fs.writeFile(tid + ".json", json, function(err, paymentData){
+      //     if (err) console.log(err);
+          console.log("Successfully Written to File.");
+      };
+      // Payment redirection link
+      require("openurl").open(response)
+      console.log(response);
+
+  });
+
+});
+
+
 
 //Listen for OTP
 app.get('/otp', function(req, res) {
@@ -91,9 +135,9 @@ transporter.sendMail(mailOptions, function(error, info){
 });
 
 app.get('/verify', function(req,res){
-    
 
-})    
+
+})
 // listen for all incoming requests
 app.listen(3000, function(){
   console.log("Server is listening on port 3000");

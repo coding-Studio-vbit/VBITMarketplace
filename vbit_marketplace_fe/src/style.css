@@ -1,0 +1,121 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+header{
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), center no-repeat;
+        background-size: cover;
+}
+.app{
+    background-color: orangered;
+    max-width: 120rem;
+    width:10%;
+    margin: 0 auto;
+}
+nav{
+    background-color: black;
+    padding-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+.VBIT{
+    font-size: 3rem;
+    font-weight: 300;
+    transform: translateX(10rem);
+
+}
+.VBIT span{
+    color: rgb(207, 63, 70);
+}
+nav ul{
+    display: flex;
+}
+nav ul li {
+    list-style: none;
+}
+nav ul li a{
+    color: aliceblue;
+    padding: 1rem;
+    margin: 0.3rem;
+    position: relative;
+    letter-spacing: 2px;
+}
+nav ul li a:last-child{
+    margin-right: -1;
+}
+nav ul li a::before,
+nav ul li a::after{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: crimson;
+    left:0;
+    transform: scaleX(0);
+    transition: all .5s;
+}
+nav ul li a::before{
+    top:0;
+    transform-origin: left;
+}
+nav ul li a::after{
+    bottom:0;
+    transform-origin: right;
+}
+nav ul li a:hover::before,
+nav ul li a:hover::after{
+    transform: scaleX(1);
+}
+.search-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgb(235, 162, 28);
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+.search-btn{
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    border: 1px solid #c8c9ce;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    background-image: url(search-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding:0;
+    color:rgb(235, 162, 28);
+    font-size: 16px;
+
+}
+.search-btn{
+    color: #e84118;
+    float: right;
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

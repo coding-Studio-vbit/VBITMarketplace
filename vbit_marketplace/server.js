@@ -1,6 +1,7 @@
 const accountSid = 'good luck';
 const authToken = 'i will not tell';
 const client = require('twilio')(accountSid, authToken);
+const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 var request = require('request');
 var bodyParser = require('body-parser');
@@ -106,6 +107,44 @@ app.get('/verifyemail', function(req,res){
 })
 
 })      
+
+// Sign up 
+app.post('/signup', (req, res) => {
+  const { useremail, userfirstname, userpassword} = req.body;
+  let hash = bcrypt.hashSync(userpassword,10);
+  knex('users')
+    .insert({
+      useremail: useremail,
+      userpassword: hash,
+      userfirstname: userfirstname,
+      userregistrationdate: new Date()
+    })
+    .then(user => {
+      res.json("User Registered Successfully")
+    })
+    .catch(err => res.status(400).json('Error Registering'))
+})
+
+//Signin
+app.post('/signin', (req, res) => {
+  knex.select('useremail', 'userpassword').from('users')
+    .where('useremail', '=', req.body.email)
+    .then(data => {
+      const isValid = bcrypt.compareSync(req.body.password, data[0].userpassword);
+      if (isValid) {
+        return knex.select('*').from('users')
+          .where('useremail', '=', req.body.email)
+          .then(user => {
+            res.json(user[0])
+          })
+          .catch(err => res.status(400).json('unable to get user'))
+      } else {
+        res.status(400).json('wrong credentials')
+      }
+    })
+    .catch(err => res.status(400).json('wrong credentials'))
+})
+
 // listen for all incoming requests
 app.listen(3000, function(){
   console.log("Server is listening on port 3000");

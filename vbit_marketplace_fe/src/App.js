@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Profile from './Profile';
 
 import './style.css';
 
 class App extends Component {
   render() {
     return (
+      <React.Fragment>
       <div className="App">
       <nav>
         <h1 className="VBIT"><a href="#">VBI<span>T</span></a></h1>
@@ -26,6 +28,9 @@ class App extends Component {
         
       </nav>
     </div>
+     <Profile />
+      
+     </React.Fragment>
     );
   }
 }

@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './style.css';
 import App from './App';
 import Card from './Card';
 import * as serviceWorker from './serviceWorker';

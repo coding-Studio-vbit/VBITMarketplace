@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 <<<<<<< HEAD
 <<<<<<< HEAD
 import Profile from './Profile';
+import Checkout from './Checkout';
 =======
 import Card from './Card'
 import './App.css';

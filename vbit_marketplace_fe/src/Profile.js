@@ -4,34 +4,33 @@ import React from 'react';
 
 const Profile = () => {
 	return (
-  <form>
+        <form>
   <h1>Primary Information</h1>
   <div class="question">
-    <input type="text" value="Hailee" required/>
+    <input type="text" required/>
     <label>First Name</label>
   </div>
   <div class="question">
-    <input type="text" value="Steinfeld" required/>
+    <input type="text" required/>
     <label>Last Name</label>
   </div>
   <div class="question">
-    <input type="text" value="hailee@gmail.com"required/>
+    <input type="text" required/>
     <label>Email Address</label>
   </div>
   <div class="question">
-    <input type="text" value="Female"required/>
+    <input type="text" required/>
     <label>Gender</label>
   </div>
    <div class="question">
-    <input type="text" value="December 11 1996"required/>
+    <input type="text" required/>
     <label>Date of Birth</label>
   </div>
   <div class="question">
-    <input type="text" value="323-845-9200"required/>
+    <input type="text" required/>
     <label>Mobile Number</label>
   </div>
   <button>Edit</button>
-
 </form>
   );
 }

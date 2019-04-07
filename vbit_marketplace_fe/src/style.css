@@ -119,7 +119,6 @@ nav ul li a:hover::after{
     justify-content: center;
     align-items: center;
 }
-<<<<<<< HEAD
 .transition, form button, form .question label, form .question input[type="text"] {
   -moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
   -o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
@@ -245,5 +244,3 @@ form .question input[type="text"]:valid ~ label {
   -webkit-transform: translate(5px, -35px) scale(0.6);
   transform: translate(5px, -35px) scale(0.6);
 }
-=======
->>>>>>> b4cf228602ca7dc6b697b3f270ec60348a33e432

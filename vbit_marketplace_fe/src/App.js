@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Profile from './Profile';
 =======
 import Card from './Card'
 import './App.css';
 import { item } from './item';
 >>>>>>> 9386ba1ad269af7f3e4944209b7edf5033b51526
+=======
+>>>>>>> b4cf228602ca7dc6b697b3f270ec60348a33e432
 
+import './style.css';
 
 class App extends Component {
   render() {
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
       <React.Fragment>
+=======
+>>>>>>> b4cf228602ca7dc6b697b3f270ec60348a33e432
       <div className="App">
       <nav>
         <h1 className="VBIT"><a href="#">VBI<span>T</span></a></h1>
@@ -34,6 +41,7 @@ class App extends Component {
         
       </nav>
     </div>
+<<<<<<< HEAD
      <Profile />
       
      </React.Fragment>
@@ -84,6 +92,8 @@ class App extends Component {
 </div>
 
 >>>>>>> 9386ba1ad269af7f3e4944209b7edf5033b51526
+=======
+>>>>>>> b4cf228602ca7dc6b697b3f270ec60348a33e432
     );
   }
 }

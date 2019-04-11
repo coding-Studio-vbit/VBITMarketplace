@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
+import Checkout from './Checkout';
 
 import './style.css';
 
